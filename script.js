@@ -1,6 +1,5 @@
 const getSum = () => {
 
-    // Select all prices
     const prices = document.querySelectorAll(".prices");
 
     let total = 0;
@@ -9,7 +8,7 @@ const getSum = () => {
         total += Number(price.textContent);
     });
 
-    // Remove old total row if exists
+    // Remove old total row
     const oldRow = document.getElementById("ans");
     if (oldRow) oldRow.remove();
 
@@ -25,3 +24,6 @@ const getSum = () => {
 
     document.querySelector("table").appendChild(row);
 };
+
+
+document.getElementById("sum-btn").addEventListener("click", getSum);
