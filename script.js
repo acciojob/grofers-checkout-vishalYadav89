@@ -1,29 +1,33 @@
-const getSum = () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const prices = document.querySelectorAll(".prices");
+    const getSum = () => {
 
-    let total = 0;
+        const prices = document.querySelectorAll(".prices");
 
-    prices.forEach((price) => {
-        total += Number(price.textContent);
-    });
+        let total = 0;
 
-    // Remove old total row
-    const oldRow = document.getElementById("ans");
-    if (oldRow) oldRow.remove();
+        prices.forEach((price) => {
+            total += Number(price.textContent);
+        });
 
-    // Create new row
-    const row = document.createElement("tr");
-    row.id = "ans";
+        // Remove old total row if exists
+        const oldRow = document.getElementById("ans");
+        if (oldRow) oldRow.remove();
 
-    const cell = document.createElement("td");
-    cell.colSpan = 2;
-    cell.textContent = total;
+        // Create new row
+        const row = document.createElement("tr");
+        row.id = "ans";
 
-    row.appendChild(cell);
+        const cell = document.createElement("td");
+        cell.colSpan = 2;
+        cell.textContent = total;
 
-    document.querySelector("table").appendChild(row);
-};
+        row.appendChild(cell);
 
+        document.querySelector("table").appendChild(row);
+    };
 
-document.getElementById("sum-btn").addEventListener("click", getSum);
+    // ✅ Attach event
+    document.getElementById("sum-btn").addEventListener("click", getSum);
+
+});
